@@ -13,7 +13,15 @@
 	"schema": {
 		"tableName": "objectType",
 		"syntax": "sqlite",
-		"sparseThreshold": ".1"
+		"sparseThreshold": ".1",
+		"limit": [
+			{
+				"value": "2015-01-01",
+				"type": "date",
+				"condition": "gte",
+				"field": "updatedDate"
+			}
+		]
 	},
 	"mongo": {
 		"host": "mongodb://192.168.1.1:27017/myproject",
