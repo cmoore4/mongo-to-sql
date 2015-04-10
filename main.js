@@ -2,9 +2,9 @@ var config = require('./config.json'),
 	util = require('util'),
 	debuglog = util.debuglog('main'),
 	argv = require('minimist')(process.argv.slice(2)),
-	mongoLib = require('mongodb').MongoClient,
-	schemaParser = require('lib/m2sql-schema.js'),
-	dataParser = require('lib/m2sql-data.js'),
+	//mongoLib = require('mongodb').MongoClient,
+	schemaParser = require('./lib/m2sql-schema.js'),
+	dataParser = require('./lib/m2sql-data.js'),
 	mongoConn;
 
 var debug = function(obj){
@@ -12,11 +12,11 @@ var debug = function(obj){
 };
 debug(config);
 
-mongoLib.connect(config.connection.host, function(err, db){
+/*mongoLib.connect(config.connection.host, function(err, db){
 	if(err){ return console.log('Could not connect to Mongo'); }
 	mongoConn = db;
 	run();
-});
+});*/
 
 function run(){
 	switch(argv['_'][0]){
@@ -43,19 +43,22 @@ function createSchema(){
 				},
 				'col1':{
 					'type': 'int',
-					'sparse': true
+					'sparse': true,
+					'default': 17
 				},
 				'col2': {
 					'type': 'bool',
+					notNull: true
 				}
 			}
 		}
 	};
 
-	var schemaMaker = new schemaParser(schema, config.schema.syntax);
+	var schemaMaker = schemaParser({schema: schema, syntax: config.schema.syntax});
+	schemaMaker.construct();
 
 	var sqlSchema = schemaMaker.generateSQL();
 
-	debug(sqlSchema);
-
 }
+
+run();
