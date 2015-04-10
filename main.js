@@ -50,6 +50,22 @@ function createSchema(){
 					'type': 'bool',
 					notNull: true
 				}
+			},
+			'test2': {
+				'id_pk': {
+					'primaryKey': true,
+					'type': 'int',
+					'notNull': true
+				},
+				'col3':{
+					'type': 'int',
+					'sparse': true,
+					'default': 18
+				},
+				'col4': {
+					'type': 'text',
+					'notNull': true
+				}
 			}
 		}
 	};
