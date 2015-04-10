@@ -17,7 +17,7 @@ This project is only a skeleton and does not yet do anything, so you can safely 
 	"limit": [
 		{
 			"value": "2015-01-01",
-			"type": date,
+			"type": "date",
 			"condition": "gte",
 			"field": "updatedDate"
 		}
@@ -37,7 +37,7 @@ M2S(Mongo-To-SQL) will comb through every document in your Mongo database that m
 
 I would end up with the tables: `Person`, `Car`, and `Pet`.
 
-For each of these objectTypes, M2S will then extract every unique key to use as columns and attempt to infer the best sql data type to use. M2S will also notate in the final schema, via SQL comments, that a specific field is sparsely populated.
+For each of these objectTypes, M2S will then extract every unique key to use as columns and attempt to infer the best sql data type to use. M2S will also notate in the final schema, via SQL comments, that a specific field is sparsely populated.  It will also auto-generate a primary key(id) if one is not specified.
 TODO: Explain data-type inference, reference counting
 
 So, given the same data from above, we would generate these three tables targeting the SQLite syntax:
