@@ -1,0 +1,26 @@
+{
+  "name": "mongo-to-sql",
+  "version": "0.0.1",
+  "description": "Converts a Mongo store into a SQL database",
+  "engines" : { "node" : ">=0.11.0" },
+  "engineStrict": true,
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/cmoore4/mongo-to-sql"
+  },
+  "keywords": [
+    "mongo",
+    "sql",
+    "converter"
+  ],
+  "author": "Sean Moore",
+  "license": "BSD",
+  "dependencies": {
+    "mongodb": "latest",
+    "minimist": ">=1.1.1"
+  }
+}
