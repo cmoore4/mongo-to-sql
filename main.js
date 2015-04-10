@@ -49,7 +49,10 @@ function createSchema(){
 		}
 	};
 
-	var sqlSchema = schemaParser.createSQL(schema);
+	var schemaMaker = new schemaParser(schema, config.schema.syntax);
+
+	var sqlSchema = schemaMaker.generateSQL();
+
 	debug(sqlSchema);
 
 }
