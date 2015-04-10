@@ -37,13 +37,16 @@ function createSchema(){
 	var schema = {
 		'tables':{
 			'test': {
+				'id': {
+					'primaryKey': true,
+					'type': 'int'
+				},
 				'col1':{
 					'type': 'int',
 					'sparse': true
 				},
 				'col2': {
 					'type': 'bool',
-					'sparse': false
 				}
 			}
 		}
