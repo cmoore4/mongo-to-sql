@@ -75,6 +75,7 @@ function createSchema(){
 
 	var sqlSchema = schemaMaker.generateSQL();
 
+	return sqlSchema;
 }
 
-run();
+console.log(run());
