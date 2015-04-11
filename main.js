@@ -2,7 +2,7 @@ var config = require('./config.json'),
 	util = require('util'),
 	debuglog = util.debuglog('main'),
 	argv = require('minimist')(process.argv.slice(2)),
-	//mongoLib = require('mongodb').MongoClient,
+	mongoLib = require('mongodb').MongoClient,
 	schemaParser = require('./lib/m2sql-schema.js'),
 	dataParser = require('./lib/m2sql-data.js'),
 	mongoConn;
