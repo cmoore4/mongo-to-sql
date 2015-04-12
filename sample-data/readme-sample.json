@@ -1,0 +1,5 @@
+{id: 1, objectType: "Person", name: "Peter", age: "32", city: "New Orleans", occupation: "Therapist"}
+{id: 2, objectType: "Person", name: "Jillian", age: "17", city: "Venice"}
+{id: 3, objectType: "Person", name: "Kronk", age: "21", city: "Palo Alto"}
+{id: 1, objectType: "Car", model: "Charger", make: "Dodge", year: 2009}
+{objectType: "Pet", name: "Fido", age: "6", city: "New Orleans", species: "Iguana"}
