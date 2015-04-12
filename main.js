@@ -1,8 +1,8 @@
 var config = require('./config.json'),
 	argv = require('minimist')(process.argv.slice(2)),
 	mongoLib = require('mongodb').MongoClient,
-	schemaParser = require('./lib/m2sql-schema.js'),
-	//dataParser = require('./lib/m2sql-data.js'),
+	m2sSchema = require('./lib/m2sql-schema.js'),
+	m2sData = require('./lib/m2sql-data.js'),
 	mongoConn;
 
 mongoLib.connect(config.mongo.host, function(err, db){
@@ -26,6 +26,7 @@ function run(){
 function convertData(){
 
 }
+
 
 function createSchema(){
 	var schema = {
@@ -64,7 +65,7 @@ function createSchema(){
 		}
 	};
 
-	var schemaMaker = schemaParser({schema: schema, syntax: config.schema.syntax});
+	var schemaMaker = m2sSchema.jsToSQL({schema: schema, syntax: config.schema.syntax});
 	schemaMaker.construct();
 
 	var sqlSchema = schemaMaker.generateSQL();
