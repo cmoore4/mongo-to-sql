@@ -1,22 +1,16 @@
 var config = require('./config.json'),
-	util = require('util'),
-	debuglog = util.debuglog('main'),
 	argv = require('minimist')(process.argv.slice(2)),
 	mongoLib = require('mongodb').MongoClient,
 	schemaParser = require('./lib/m2sql-schema.js'),
-	dataParser = require('./lib/m2sql-data.js'),
+	//dataParser = require('./lib/m2sql-data.js'),
 	mongoConn;
 
-var debug = function(obj){
-	debuglog(util.inspect(obj, {depth: 3, colors: true}));
-};
-debug(config);
-
-/*mongoLib.connect(config.connection.host, function(err, db){
+mongoLib.connect(config.mongo.host, function(err, db){
 	if(err){ return console.log('Could not connect to Mongo'); }
 	mongoConn = db;
-	run();
-});*/
+	console.log(run());
+	return db.close();
+});
 
 function run(){
 	switch(argv['_'][0]){
@@ -77,5 +71,3 @@ function createSchema(){
 
 	return sqlSchema;
 }
-
-console.log(run());
